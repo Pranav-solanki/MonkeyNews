@@ -8,7 +8,7 @@ export default function News() {
     const fetchNews = async () => {
       try {
         const response = await fetch(
-          "https://newsdata.io/api/1/news?apikey=pub_c0b163a1315d4364a6752ca770d9fa7b&language=en"
+          "https://newsdata.io/api/1/latest?apikey=pub_c0b163a1315d4364a6752ca770d9fa7b&country=in&prioritydomain=top"
         );
         const data = await response.json();
         setarticle(data.results);
@@ -32,8 +32,8 @@ export default function News() {
           >
             <Newsitem
               newsUrl={news.link}
-              title={news.title.slice(0,50)}
-              description={news.description.slice(0,90)}
+              title={news.title.slice(0, 50)}
+              description={news.description.slice(0, 90)}
               imageurl={news.image_url}
             />
           </div>
