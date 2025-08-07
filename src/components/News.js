@@ -25,10 +25,15 @@ export default function News() {
       <h2 className="text-center">MonkeyNews-Top headline</h2>
       <div className="row">
         {article.map((news, index) => (
-          <div className="col-md-4">
+          <div
+            className="col-md-4 mb-4"
+            key={news.link}
+            style={{ height: "500px", overflow: "hidden" }}
+          >
             <Newsitem
-              title={news.title}
-              description={news.description}
+              newsUrl={news.link}
+              title={news.title.slice(0,50)}
+              description={news.description.slice(0,90)}
               imageurl={news.image_url}
             />
           </div>
