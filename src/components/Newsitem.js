@@ -1,15 +1,11 @@
 import React from "react";
-import fallbackimg from './quiz3.jpeg';
+// import fallbackimg from "./quiz3.jpeg";
 
 export default function Newsitem(props) {
   return (
     <div className="card h-100 d-flex flex-column">
       <img
-        src={
-          props.imageurl
-            ? props.imageurl
-            : fallbackimg
-        }
+        src={props.imageurl}
         className="card-img-top"
         alt="News"
         style={{ height: "200px", objectFit: "cover" }}

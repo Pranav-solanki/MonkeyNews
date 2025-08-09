@@ -1,5 +1,6 @@
 import React from "react";
 import Newsitem from "./Newsitem";
+import fallbackimg from "./quiz3.jpeg";
 import { useState, useEffect } from "react";
 
 export default function News() {
@@ -12,7 +13,6 @@ export default function News() {
         );
         const data = await response.json();
         setarticle(data.results);
-        // console.log(data.results[0].title); // See what the API returns
       } catch (error) {
         console.error("API error:", error);
       }
@@ -32,9 +32,13 @@ export default function News() {
           >
             <Newsitem
               newsUrl={news.link}
-              title={news.title.slice(0, 50)}
-              description={news.description.slice(0, 90)}
-              imageurl={news.image_url}
+              title={news.title ? news.title.slice(0, 50) : "not available"}
+              description={
+                news.description
+                  ? news.description.slice(0, 90)
+                  : "not available"
+              }
+              imageurl={news.image_url ? news.image_url : fallbackimg}
             />
           </div>
         ))}
