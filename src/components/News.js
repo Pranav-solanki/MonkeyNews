@@ -4,7 +4,7 @@ import fallbackimg from "./quiz3.jpeg";
 import { useState, useEffect } from "react";
 import Loading from "./Loading";
 
-export default function News() {
+export default function News(props) {
   const [article, setarticle] = useState([]);
   const [pages, setPage] = useState(1);
   const [loading, setload] = useState(false);
@@ -14,7 +14,7 @@ export default function News() {
       setload(true);
       try {
         const response = await fetch(
-          `https://newsdata.io/api/1/latest?apikey=pub_c0b163a1315d4364a6752ca770d9fa7b&country=in&prioritydomain=top`
+          `https://newsdata.io/api/1/latest?apikey=pub_c0b163a1315d4364a6752ca770d9fa7b&country=in&category=${props.category}&prioritydomain=top`
         );
         const data = await response.json();
         setload(false);
@@ -26,13 +26,13 @@ export default function News() {
       }
     };
     fetchNews();
-  }, []);
+  }, [props.category]);
 
   const handlenext = async () => {
     setload(true);
     try {
       const response = await fetch(
-        `https://newsdata.io/api/1/latest?apikey=pub_c0b163a1315d4364a6752ca770d9fa7b&country=in&prioritydomain=top&page=${pages}`
+        `https://newsdata.io/api/1/latest?apikey=pub_c0b163a1315d4364a6752ca770d9fa7b&country=in&category=${props.category}&prioritydomain=top&page=${pages}`
       );
       const data = await response.json();
       setload(false);
@@ -46,7 +46,7 @@ export default function News() {
     <>
       {loading && <Loading />}
       <div>
-        <h2 className="text-center">MonkeyNews-Top headline</h2>
+        {!loading && <h2 className="text-center">MonkeyNews-Top headline</h2>}
         <div className="row">
           {!loading &&
             article.map((news, index) => (
@@ -69,11 +69,13 @@ export default function News() {
             ))}
         </div>
       </div>
-      <div className="container d-flex justify-content-end mb-3">
-        <button type="button" className="btn btn-dark" onClick={handlenext}>
-          Next &rarr;
-        </button>
-      </div>
+      {!loading && (
+        <div className="container d-flex justify-content-end mb-3">
+          <button type="button" className="btn btn-dark" onClick={handlenext}>
+            Next &rarr;
+          </button>
+        </div>
+      )}
     </>
   );
 }
