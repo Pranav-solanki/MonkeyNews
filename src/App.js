@@ -6,7 +6,7 @@ import News from "./components/News";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/MonkeyNews">
       <Navbar />
       <Routes>
         <Route key="general" path="/" element={<News category="science" />} />

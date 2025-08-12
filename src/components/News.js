@@ -53,7 +53,7 @@ export default function News(props) {
               <div
                 className="col-md-4 mb-4"
                 key={news.link}
-                style={{ height: "500px", overflow: "hidden" }}
+                style={{ height: "500px", overflow: "visible" }}
               >
                 <Newsitem
                   newsUrl={news.link}
@@ -64,6 +64,9 @@ export default function News(props) {
                       : "not available"
                   }
                   imageurl={news.image_url ? news.image_url : fallbackimg}
+                  creator={news.creator?news.creator:"unknown"}
+                  pubDate={news.pubDate}
+                  source={news.source_name}
                 />
               </div>
             ))}
