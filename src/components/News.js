@@ -25,9 +25,12 @@ export default function News(props) {
         console.error("API error:", error);
       }
     };
+    document.title = `${capital(props.category)}-MonkeyNews`;
     fetchNews();
   }, [props.category]);
-
+  const capital = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
   const handlenext = async () => {
     setload(true);
     try {
@@ -46,7 +49,7 @@ export default function News(props) {
     <>
       {loading && <Loading />}
       <div>
-        {!loading && <h2 className="text-center">MonkeyNews-Top headline</h2>}
+        {!loading && <h2 className="text-center" style={{margin:"20px"}}>{`MonkeyNews- Top ${capital(props.category)}`} Headlines</h2>}
         <div className="row">
           {!loading &&
             article.map((news, index) => (
@@ -64,7 +67,7 @@ export default function News(props) {
                       : "not available"
                   }
                   imageurl={news.image_url ? news.image_url : fallbackimg}
-                  creator={news.creator?news.creator:"unknown"}
+                  creator={news.creator ? news.creator : "unknown"}
                   pubDate={news.pubDate}
                   source={news.source_name}
                 />
