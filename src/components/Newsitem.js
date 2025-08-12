@@ -3,15 +3,10 @@ import React from "react";
 
 export default function Newsitem(props) {
   return (
-    <div
-      className="card h-100 d-flex flex-column position-relative"
-    >
-      <span
-        className="position-absolute  translate-middle badge rounded-pill bg-danger"
-        style={{ zIndex: 1,right:"10px"}}
-      >
-        {props.source}
-      </span>
+    <div className="card h-100 d-flex flex-column position-relative">
+      <div style={{display:"flex",justifyContent:"flex-end",position:"absolute",right:"0"}}> 
+        <span className="adge rounded-pill bg-danger">{props.source}</span>
+      </div>
       <img
         src={props.imageurl}
         className="card-img-top"

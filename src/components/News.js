@@ -11,12 +11,14 @@ export default function News(props) {
 
   useEffect(() => {
     const fetchNews = async () => {
+      props.progress(10);
       setload(true);
       try {
         const response = await fetch(
           `https://newsdata.io/api/1/latest?apikey=pub_c0b163a1315d4364a6752ca770d9fa7b&country=in&category=${props.category}&prioritydomain=top`
         );
         const data = await response.json();
+        props.progress(100);
         setload(false);
         console.log(data);
         setarticle(data.results);
@@ -32,12 +34,14 @@ export default function News(props) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
   const handlenext = async () => {
+    props.progress(10);
     setload(true);
-    try {
+    try { 
       const response = await fetch(
         `https://newsdata.io/api/1/latest?apikey=pub_c0b163a1315d4364a6752ca770d9fa7b&country=in&category=${props.category}&prioritydomain=top&page=${pages}`
       );
       const data = await response.json();
+       props.progress(100);
       setload(false);
       setarticle(data.results);
       setPage(data.nextPage);
