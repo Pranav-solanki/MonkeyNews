@@ -15,7 +15,7 @@ export default function News(props) {
       setload(true);
       try {
         const response = await fetch(
-          `https://newsdata.io/api/1/latest?apikey=pub_c0b163a1315d4364a6752ca770d9fa7b&country=in&category=${props.category}&prioritydomain=top`
+          `https://newsdata.io/api/1/latest?apikey=${props.apikey}&country=in&category=${props.category}&prioritydomain=top`
         );
         const data = await response.json();
         props.progress(100);
@@ -38,7 +38,7 @@ export default function News(props) {
     setload(true);
     try { 
       const response = await fetch(
-        `https://newsdata.io/api/1/latest?apikey=pub_c0b163a1315d4364a6752ca770d9fa7b&country=in&category=${props.category}&prioritydomain=top&page=${pages}`
+        `https://newsdata.io/api/1/latest?apikey=${props.apikey}&country=in&category=${props.category}&prioritydomain=top&page=${pages}`
       );
       const data = await response.json();
        props.progress(100);

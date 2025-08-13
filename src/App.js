@@ -8,6 +8,7 @@ import { useState } from "react";
 
 function App() {
   const [progress, setprogress] = useState(10);
+  const apikey=process.env.REACT_APP_NEWS_API;
   return (
     <Router basename="/MonkeyNews">
       <Navbar />
@@ -17,21 +18,21 @@ function App() {
           onLoaderFinished={() => setprogress(0)} // auto-reset
       />
       <Routes>
-        <Route key="general" path="/" element={<News progress={setprogress} category="science" />} />
+        <Route key="general" path="/" element={<News progress={setprogress} apikey={apikey} category="science" />} />
         <Route
           key="sports"
           path="/sports"
-          element={<News progress={setprogress} category="sports" />}
+          element={<News progress={setprogress} apikey={apikey} category="sports" />}
         />
         <Route
           key="business"
           path="/business"
-          element={<News progress={setprogress} category="business" />}
+          element={<News progress={setprogress} apikey={apikey} category="business" />}
         />
         <Route
           key="technology"
           path="/technology"
-          element={<News progress={setprogress} category="technology" />}
+          element={<News progress={setprogress} apikey={apikey} category="technology" />}
         />
       </Routes>
     </Router>
