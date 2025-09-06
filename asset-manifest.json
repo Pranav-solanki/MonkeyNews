@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/MonkeyNews/static/css/main.f855e6bc.css",
-    "main.js": "/MonkeyNews/static/js/main.9641a61a.js",
-    "static/js/453.2d0007bf.chunk.js": "/MonkeyNews/static/js/453.2d0007bf.chunk.js",
-    "static/media/quiz3.jpeg": "/MonkeyNews/static/media/quiz3.46f22808f7bf4c93c415.jpeg",
-    "static/media/loading.gif": "/MonkeyNews/static/media/loading.89aa9bab006dff15df19.gif",
-    "index.html": "/MonkeyNews/index.html",
-    "main.f855e6bc.css.map": "/MonkeyNews/static/css/main.f855e6bc.css.map",
-    "main.9641a61a.js.map": "/MonkeyNews/static/js/main.9641a61a.js.map",
-    "453.2d0007bf.chunk.js.map": "/MonkeyNews/static/js/453.2d0007bf.chunk.js.map"
+    "main.css": "/static/css/main.f855e6bc.css",
+    "main.js": "/static/js/main.b073418f.js",
+    "static/js/453.2d0007bf.chunk.js": "/static/js/453.2d0007bf.chunk.js",
+    "static/media/quiz3.jpeg": "/static/media/quiz3.46f22808f7bf4c93c415.jpeg",
+    "static/media/loading.gif": "/static/media/loading.89aa9bab006dff15df19.gif",
+    "index.html": "/index.html",
+    "main.f855e6bc.css.map": "/static/css/main.f855e6bc.css.map",
+    "main.b073418f.js.map": "/static/js/main.b073418f.js.map",
+    "453.2d0007bf.chunk.js.map": "/static/js/453.2d0007bf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.9641a61a.js"
+    "static/js/main.b073418f.js"
   ]
 }
