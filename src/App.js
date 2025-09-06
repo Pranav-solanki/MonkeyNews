@@ -10,7 +10,7 @@ function App() {
   const [progress, setprogress] = useState(10);
   const apikey=process.env.REACT_APP_NEWS_API;
   return (
-    <Router basename="/MonkeyNews">
+    <Router basename="/">
       <Navbar />
       <LoadingBar
         color="#f11946"
